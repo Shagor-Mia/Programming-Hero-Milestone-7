@@ -16,15 +16,15 @@ import Players from "./components/useEffect";
 //   const res = await fetch("https://jsonplaceholder.typicode.com/users");
 //   return res.json();
 // };
-// const fetchPosts = async () => {
-//   const res = await fetch("https://jsonplaceholder.typicode.com/posts");
-//   return res.json();
-// };
+const fetchPosts = async () => {
+  const res = await fetch("https://jsonplaceholder.typicode.com/posts");
+  return res.json();
+};
 
 function App() {
   return (
     <>
-      <h1>Vite + React</h1>
+      <h1 className="text-red-400">Vite + React</h1>
       {/* <Event /> */}
       {/* <Counter /> */}
       {/* <Player /> */}
@@ -34,12 +34,26 @@ function App() {
       {/* <Suspense fallback={<h4>friends are coming ...</h4>}>
         <Friends fetchFriends={fetchFriends()} />
       </Suspense> */}
-      {/* <Suspense fallback={<h4>Posts are loading ...</h4>}>
+      <Suspense
+        fallback={
+          <h4>
+            Posts are loading{" "}
+            <span className="loading loading-dots loading-xl"></span>
+          </h4>
+        }
+      >
         <Posts fetchPosts={fetchPosts()} />
-      </Suspense> */}
-      <Suspense fallback={<h4>Players are loading ...</h4>}>
-        <Players />
       </Suspense>
+      {/* <Suspense
+        fallback={
+          <h4>
+            Players are loading{" "}
+            <span className="loading loading-dots loading-xl"></span>
+          </h4>
+        }
+      >
+        <Players />
+      </Suspense> */}
     </>
   );
 }
